@@ -10,6 +10,10 @@ rgb(220, 160, 80) pink/orange
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 nav {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 1.1em;
@@ -24,7 +28,7 @@ nav {
   background-color: white;
 }
 
-.link {
+.link_nav {
   color: rgb(44, 123, 172);
   background: white;
   text-decoration: none;
@@ -57,3 +61,4 @@ h1 {
 .forms{
   color: black;
 }
+

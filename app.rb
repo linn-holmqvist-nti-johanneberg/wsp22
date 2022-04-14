@@ -17,6 +17,44 @@ get('/laws') do
   slim(:"laws/index", locals:{the_laws:result})
 end
 
+get('/laws/:id') do 
+  id = params[:id].to_i
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  result = db.execute("SELECT * FROM laws WHERE law_id = ?", id).first
+  result2 = db.execute("SELECT district_name FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)", id).first
+  p result2
+  slim(:"laws/show", locals:{result:result,result2:result2})
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 get('/showlogin') do
   slim(:login)
 end
@@ -26,7 +64,7 @@ post('/login') do
   password = params[:password]
   db = SQLite3::Database.new('db/laws.db')
   db.results_as_hash = true
-  result = db.execute("SELECT username, password FROM user WHERE username = ?", username).first 
+  result = db.execute("SELECT username, password FROM user WHERE username = ?", username).first
   password_digest= result["password"]
   id = result["id"]
 

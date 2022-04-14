@@ -1,0 +1,6 @@
+show och index ska vara synliga för alla, utan att logga in
+
+register ska synas bara för statsministern
+
+new, edit och destroy ska delvis vara synig för ministrar och helt synlig för statsministern
+

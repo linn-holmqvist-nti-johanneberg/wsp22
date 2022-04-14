@@ -2,5 +2,7 @@ div class="normal"
     br/
     h2 All laws of Espeosia
     
-    -the_laws.each do |the_laws|
-    p = the_laws
+    ul
+        - the_laws.each do |the_laws|
+            li 
+                a href="laws/#{the_laws['law_id']}" #{the_laws["law_name"]} 
