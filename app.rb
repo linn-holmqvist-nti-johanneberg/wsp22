@@ -3,9 +3,19 @@ require 'slim'
 require 'sqlite3'
 require 'bcrypt'
 
+enable :sessions
+
 get('/')  do
   slim(:hem)
 end 
+
+get('/laws') do
+
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  result = db.execute("SELECT * FROM laws")
+  slim(:"laws/index", locals:{the_laws:result})
+end
 
 get('/showlogin') do
   slim(:login)
@@ -16,20 +26,17 @@ post('/login') do
   password = params[:password]
   db = SQLite3::Database.new('db/laws.db')
   db.results_as_hash = true
-  result = db.execute("SELECT * FROM user WHERE username = ?", username).first
-  password_digest= result["password_digest"]
+  result = db.execute("SELECT username, password FROM user WHERE username = ?", username).first 
+  password_digest= result["password"]
   id = result["id"]
 
   if BCrypt::Password.new(password_digest) == password
-    redirect('/todos')
+    session[:id] = id
+    redirect('/laws')
   else
     "FEL LÖSENORD, VAR VÄNLIG FÖRSÖK IGEN"
   end
 
-end
-
-get ('/todos') do
-  slim(:todos/index)
 end
 
 get ('/register') do
@@ -54,12 +61,3 @@ post('/users/new') do
   end
 
 end
-
-
-
-
-
-
-
-
-#VIDEO 3 ungefär vid 11 min. Du har ett problem du måste lösa
