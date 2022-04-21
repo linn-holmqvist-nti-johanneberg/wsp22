@@ -15,9 +15,41 @@ html lang="en"
       -else
         a href="/" class="link_nav" id="logo"
           img src="/img/logo.jpg" alt="hem" id="logo_nav" 
-        a href="/log_out" class="link_nav" Log out
+        a href="/log_out" class="link_nav" id="logg_out_nav" Log out 
+        div class="dropdown" class="link_nav"
+          button class="dropbtn" Add
+          div class="dropdown-content"
+            a href="/districts/new" Add district
+            a href="/laws/new" Add law
+            a href="/register" Add minister
+        a href="/districts" class="link_nav" Districts 
         a href="/all_laws" class="link_nav" Laws
-        a href="/laws/new" class="link_nav" Lägg till
+
         
     div class="normal"
+      img src="img/flag.jpg" alt="Espeosia's flag" id="img_flag"
+    
     == yield
+
+    footer
+      h4 class="footer_headline" Besök oss på våra sociala medier:
+
+      div class="icons_line"
+        a href="https://www.instagram.com/" class="social_icon"
+          img class="social_icons" src="img/instagram.jpg" alt="Instagram logga"
+        a href="https://www.instagram.com/" class="link" Instagram
+        br/
+
+      div class="icons_line"
+        a href="https://sv-se.facebook.com/" class="social_icon"
+          img class="social_icons" src="img/facebook.jpg" alt="Facebook logga"
+        a href="https://sv-se.facebook.com/" class="link"Facebook
+        br/
+
+      div class="icons_line"
+        a href="https://mobile.twitter.com/?lang=sv" class="social_icon"
+          img class="social_icons" src="img/twitter.jpg" alt="Twitter logga"
+        a href="https://mobile.twitter.com/?lang=sv" class="link"Twitter
+
+
+    

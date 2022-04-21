@@ -1,0 +1,15 @@
+div class="normal"
+    br/
+    br/ 
+    br/
+    h2 Change the district; "#{result['district_name']}"
+    br/
+    br/
+    br/
+    form action="/districts/#{result['district_id']}/update" method="POST" 
+        input type="text" name="name" value="#{result['district_name']}" class="form" 
+        br/
+        input type="integer" name="access" value="#{result['access']}" class="form" 
+        br/
+        br/
+        input type="submit" value="Update the district" class="form" 

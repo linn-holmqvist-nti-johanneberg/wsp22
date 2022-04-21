@@ -5,6 +5,16 @@ require 'bcrypt'
 
 enable :sessions
 
+unProtectedRoutes = ['/', '/register', '/showlogin', '/laws', '/log_out']
+
+before do
+  path = request.path_info
+  pathMethod = request.request_method
+  pathInclude = unProtectedRoutes.include?(path)
+  if not pathInclude and session[:id] and request.path_info != '/error' and pathMethod == "GET"
+    redirect('/error')
+  end
+end
 
 get('/')  do
   slim(:hem)
@@ -55,17 +65,18 @@ end
 
 post('/user/new') do
   username = params[:username]
+  access = params[:access]
   password = params[:password]
   password_confirm = params[:password_confirm]
   access = params[:access]
 
   db = SQLite3::Database.new('db/laws.db')
-  result=db.execute("SELECT id FROM user WHERE user = ?", user)
+  result=db.execute("SELECT id FROM user WHERE username = ?", username)
   if result.empty?
     if (password==password_confirm)
       password_digest = BCrypt::Password.create(password)
   
-      db.execute("INSERT INTO user (username, password, access) VALUES (?, ?, ?)", username, password_digest, 1)
+      db.execute("INSERT INTO user (username, password, access) VALUES (?, ?, ?)", username, password_digest, access)
       redirect('/')
 
     else
@@ -76,13 +87,6 @@ post('/user/new') do
     redirect('/login')
   end
 end
-
-
-
-
-
-
-
 
 
 
@@ -107,7 +111,7 @@ get('/all_laws') do
   db = SQLite3::Database.new('db/laws.db')
   db.results_as_hash = true
   result = db.execute("SELECT * FROM laws")
-  slim(:"laws/index_login", locals:{the_laws:result})
+  slim(:"laws/index_loged_in", locals:{the_laws:result})
 end
 
 get('/laws/error') do
@@ -123,7 +127,7 @@ get('/laws/add_district') do
   db.results_as_hash = true
   result = db.execute("SELECT * FROM laws")
   result2 = db.execute("SELECT * FROM district")
-  slim(:"laws/add_district", locals:{the_laws:result, the_district:result2})
+  slim(:"laws/add_law's_district", locals:{the_laws:result, the_district:result2})
 end
 
 post('/laws/new') do
@@ -155,7 +159,7 @@ post('/laws/:id/delete') do
   id = params[:id].to_i
   db = SQLite3::Database.new('db/laws.db')
   db.execute("DELETE FROM laws WHERE law_id = ?", id)
-  redirect('/laws')
+  redirect('/all_laws')
 end
 
 post('/laws/:id/update') do 
@@ -186,11 +190,76 @@ get('/laws/:id') do
   slim(:"laws/show", locals:{result:result,result2:result2})
 end
 
-before do
-# kan det vara att den inte hittar id?
-  p request.path_info
-  p session[:id]
-  if session[:id] == nil && request.path_info != '/' && request.path_info != '/error' && request.path_info != '/showlogin' && request.path_info != '/laws' && request.path_info != '/log_out'
-    redirect('/error')
+
+
+
+
+
+
+
+
+
+
+get('/districts') do
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  result = db.execute("SELECT * FROM district")
+  slim(:"districts/index", locals:{the_districts:result})
+end
+
+
+get('/districts/new') do
+  slim(:"districts/new")
+end
+
+get('/districts/error') do
+  slim(:"districts/error")
+end
+
+post('/districts/new') do
+  district_name = params[:district_name]
+  access_number = params[:access_number]
+  p access_number
+
+  db = SQLite3::Database.new('db/laws.db')
+  maybe_dubble=db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name)
+  if maybe_dubble.empty?
+      db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name, access_number)
+
+  else
+    redirect('districts/error')
   end
+end
+
+get('/districts/:id/edit') do
+  id = params[:id].to_i
+
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  result = db.execute("SELECT * FROM district WHERE district_id = ?", id).first
+  slim(:"/districts/edit", locals:{result:result})
+end
+
+post('/districts/:id/update') do 
+  id = params[:id].to_i
+  name = params[:name]
+  access = params[:access]
+  db = SQLite3::Database.new('db/laws.db')
+  db.execute("UPDATE district SET district_name = ?, access = ? WHERE district_id = ?", name, access, id)
+  redirect('/districts')
+end
+
+post('/districts/:id/delete') do
+  id = params[:id].to_i
+  db = SQLite3::Database.new('db/laws.db')
+  db.execute("DELETE FROM district WHERE district_id = ?", id)
+  redirect('/districts')
+end
+
+get('/districts/:id') do 
+  id = params[:id].to_i
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  result = db.execute("SELECT * FROM district WHERE district_id = ?", id).first
+  slim(:"districts/show", locals:{result:result})
 end

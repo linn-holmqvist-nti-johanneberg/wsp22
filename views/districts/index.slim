@@ -1,0 +1,16 @@
+div class="normal"
+    br/
+    h2 All districts of Espeosia
+    br/
+
+    ul
+        - the_districts.each do |the_districts|
+            br            
+            li 
+                a href="districts/#{the_districts['district_id']}" class="lagnamnet" #{the_districts["district_name"]} 
+                br
+                a href="districts/#{the_districts['district_id']}/edit" class="laws_design" Update 
+                form action="districts/#{the_districts['district_id']}/delete" method="POST" 
+                    input type="submit" value="Delete" class="box" class="laws_design"
+                br
+    br/

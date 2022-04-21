@@ -1,6 +1,17 @@
-form action="/laws/#{result['law_id']}/update" method="POST" 
-    input type="text" name="name" value="#{result['law_name']}"
-    input type="text" name="description" value="#{result['description']}"
-    input type="text" name="district" value="#{result2['district_name']}"
-    
-    input type="submit" value="Update the law"
+div class="normal"
+    br/
+    br/ 
+    br/
+    h2 Change the law; "#{result['law_name']}"
+    br/
+    br/
+    br/
+    form action="/laws/#{result['law_id']}/update" method="POST" 
+        input type="text" name="name" value="#{result['law_name']}" class="form" 
+        br/
+        input type="text" name="description" value="#{result['description']}" class="form" 
+        br/
+        input type="text" name="district" value="#{result2['district_name']}" class="form" 
+        br/
+        br/
+        input type="submit" value="Update the law" class="form" 
