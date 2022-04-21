@@ -1,0 +1,14 @@
+div class="normal"
+    br/
+    h2 All laws of Espeosia
+    
+    ul
+        - the_laws.each do |the_laws|
+            br            
+            li 
+                a href="laws/#{the_laws['law_id']}" class="lagnamnet" #{the_laws["law_name"]} 
+                br
+                a href="laws/#{the_laws['law_id']}/edit" class="laws_design" Update 
+                form action="laws/#{the_laws['law_id']}/delete" method="POST" 
+                    input type="submit" value="Delete" class="box" class="laws_design"
+                br

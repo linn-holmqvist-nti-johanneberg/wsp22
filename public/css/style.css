@@ -62,3 +62,39 @@ h1 {
   color: black;
 }
 
+.box{
+  background-color: white;
+  color: black;
+}
+
+.laws_design{
+  margin-left: 0.5vw;
+}
+
+#button_district{
+  width: auto;
+  height: auto;
+}
+
+#background{
+  background-color: white;
+  width: 50vw;
+  height: 62vh;  
+  padding: 2%;
+}
+
+#img_flag{
+  border: 2px solid black;
+  width: 30vw;
+}
+
+.jobbig{
+  color: rgb(220, 160, 80);
+  text-decoration: none;
+  background-color: white;
+}
+
+.lagnamnet{
+  text-decoration: underline;
+  font-size: 125%;
+}

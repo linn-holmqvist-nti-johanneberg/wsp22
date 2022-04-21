@@ -2,35 +2,34 @@ div class="normal"
 
     h1 Enact a new law
     div class="forms"
-            form action="/laws/new" method="POST"
+            form action="/laws/add_district" method="POST"
                 br/
                 br/         
                 h3 Enter the name of the law
-                input type="text" name="law_name" class="form" 
+                input type="text" name="law_name" value="#{result['law_name']}" class="form" 
                 br/
                 br/
                 br/
                 h3 Enter the description of the law
-                textarea name="description" cols="50" rows="10" class="form" 
+                textarea name="description" value="#{result['law_description']}" cols="50" rows="10" class="form" 
                 br/
                 br/
                 br/
+               
                 h3 Enter the access number of the law
-                input type="text" name="access_number" class="form"                 
+                input type="text" name="access_number" value="#{result2['access']}" class="form" 
                 br/
                 br/
                 br/
+
                 h3 Enter the district of the law 
                 input type="text" name="district_name" class="form"   
                 button type="submit" name="button" class="form" Add an other district
-               
                 /! Då måste man också kunna skapa district på något sätt. Kanske direkt när man väljer från en bar. Så kan man välja anpassad och skriva in ett nytt district.
+
                 br/
                 br/
                 br/
                 input type="submit" id="submit_pressed" value="Enact the law" class="form"
-                br/
                 input type="reset" value="Reset" class="form"
-                br/
-                br/
 

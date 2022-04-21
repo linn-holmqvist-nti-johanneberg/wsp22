@@ -6,12 +6,18 @@ html lang="en"
     title The laws of Espeosia
   body
     nav
-      a href="/" class="link_nav" id="logo"
-        img src="/img/logo.jpg" alt="hem" id="logo_nav" 
-      a href="/showlogin" class="link_nav" Log in 
-      a href="/laws" class="link_nav" Laws
-      a href="/laws/new" class="link_nav" Lägg till
-    div class="normal"
-      h1 The laws of Espeosia! 
+      -if session[:id] == []
+        a href="/" class="link_nav" id="logo"
+          img src="/img/logo.jpg" alt="hem" id="logo_nav" 
+        a href="/showlogin" class="link_nav" Log in 
+        a href="/laws" class="link_nav" Laws
 
+      -else
+        a href="/" class="link_nav" id="logo"
+          img src="/img/logo.jpg" alt="hem" id="logo_nav" 
+        a href="/log_out" class="link_nav" Log out
+        a href="/all_laws" class="link_nav" Laws
+        a href="/laws/new" class="link_nav" Lägg till
+        
+    div class="normal"
     == yield

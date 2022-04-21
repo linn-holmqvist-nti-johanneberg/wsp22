@@ -1,0 +1,6 @@
+form action="/laws/#{result['law_id']}/update" method="POST" 
+    input type="text" name="name" value="#{result['law_name']}"
+    input type="text" name="description" value="#{result['description']}"
+    input type="text" name="district" value="#{result2['district_name']}"
+    
+    input type="submit" value="Update the law"
