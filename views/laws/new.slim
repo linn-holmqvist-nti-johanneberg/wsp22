@@ -1,4 +1,4 @@
-div class="normal"
+ div class="normal"
 
     h1 Enact a new law
     div class="forms"
@@ -11,26 +11,24 @@ div class="normal"
                 br/
                 br/
                 h3 Enter the description of the law
-                textarea name="description" cols="50" rows="10" class="form" 
+                textarea name="description" cols="50" rows="10" class="form"                            
                 br/
                 br/
+                input type="submit" id="clicker" onclick="clickFunction()" value="Enact the law" class="form"
+                /! Måste lösa detta med olika submitknappar
                 br/
-                h3 Enter the access number of the law
-                input type="text" name="access_number" class="form"                 
-                br/
-                br/
-                br/
-                h3 Enter the district of the law 
-                input type="text" name="district_name" class="form"   
-                button type="submit" name="button" class="form" Add an other district
-               
-                /! Då måste man också kunna skapa district på något sätt. Kanske direkt när man väljer från en bar. Så kan man välja anpassad och skriva in ett nytt district.
-                br/
-                br/
-                br/
-                input type="submit" id="submit_pressed" value="Enact the law" class="form"
+
                 br/
                 input type="reset" value="Reset" class="form"
-                br/
-                br/
+            br/
+            br/
+            h3 Lagen kommer tillhöra districtet: #{result["district_name"]}
+            p Vilket bara du och statsministern kan ändra 
+            br/
+            br/
+            br/
+            br/
+            br/
+            br/
+                
 

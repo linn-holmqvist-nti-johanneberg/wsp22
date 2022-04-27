@@ -1,0 +1,38 @@
+div class="normal"
+
+    h1 Enact a new law
+    div class="forms"
+            form action="/laws/add" method="POST"
+                br/
+                br/         
+                h3 Enter the name of the law
+                input type="text" name="law_name" class="form" 
+                br/
+                br/
+                br/
+                h3 Enter the description of the law
+                textarea name="description" cols="50" rows="10" class="form" 
+                br/
+                br/
+                br/
+                h3 Enter the access number of the law
+                input type="text" name="access_number" class="form"                 
+                br/
+                br/
+                br/
+                h3 Enter 1 to 3 district for the law 
+                input type="text" name="district_name" class="form"
+                input type="text" name="district_name2" class="form"
+                input type="text" name="district_name3" class="form"                   
+                br/
+                br/
+                input type="submit" id="clicker" onclick="clickFunction()" value="Enact the law" class="form"
+
+                br/
+
+                br/
+                input type="reset" value="Reset" class="form"
+                br/
+                br/
+                
+

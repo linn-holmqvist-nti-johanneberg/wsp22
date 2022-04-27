@@ -5,31 +5,44 @@ html lang="en"
     link rel="stylesheet" href="/css/style.css"
     title The laws of Espeosia
   body
-    nav
-      -if session[:id] == []
-        a href="/" class="link_nav" id="logo"
-          img src="/img/logo.jpg" alt="hem" id="logo_nav" 
-        a href="/showlogin" class="link_nav" Log in 
-        a href="/laws" class="link_nav" Laws
 
-      -else
+
+
+    nav
+
+      -if session[:user_access] == 1
         a href="/" class="link_nav" id="logo"
           img src="/img/logo.jpg" alt="hem" id="logo_nav" 
         a href="/log_out" class="link_nav" id="logg_out_nav" Log out 
         div class="dropdown" class="link_nav"
           button class="dropbtn" Add
           div class="dropdown-content"
+            a href="/laws/new" Add law            
             a href="/districts/new" Add district
-            a href="/laws/new" Add law
             a href="/register" Add minister
         a href="/districts" class="link_nav" Districts 
         a href="/all_laws" class="link_nav" Laws
 
+      -elsif session[:user_access] != []
+        a href="/" class="link_nav" id="logo"
+          img src="/img/logo.jpg" alt="hem" id="logo_nav" 
+        a href="/log_out" class="link_nav" id="logg_out_nav" Log out 
+        a href="/laws/new" class="link_nav" Add law            
+        a href="/districts" class="link_nav" Districts 
+        a href="/all_laws" class="link_nav" Laws
+
+      -else 
+              a href="/" class="link_nav" id="logo"
+                img src="/img/logo.jpg" alt="hem" id="logo_nav" 
+              a href="/showlogin" class="link_nav" Log in 
+              a href="/laws" class="link_nav" Laws
         
+
     div class="normal"
       img src="img/flag.jpg" alt="Espeosia's flag" id="img_flag"
-    
+
     == yield
+
 
     footer
       h4 class="footer_headline" Besök oss på våra sociala medier:
@@ -50,6 +63,12 @@ html lang="en"
         a href="https://mobile.twitter.com/?lang=sv" class="social_icon"
           img class="social_icons" src="img/twitter.jpg" alt="Twitter logga"
         a href="https://mobile.twitter.com/?lang=sv" class="link"Twitter
+
+      br/
+      br/
+
+
+      script src="/js/main.js"
 
 
     
