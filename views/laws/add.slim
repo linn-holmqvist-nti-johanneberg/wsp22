@@ -1,5 +1,6 @@
 div class="normal"
-
+    br/
+    br/
     h1 Enact a new law
     div class="forms"
             form action="/laws/add" method="POST"
@@ -15,15 +16,17 @@ div class="normal"
                 br/
                 br/
                 br/
-                h3 Enter the access number of the law
-                input type="text" name="access_number" class="form"                 
+                h3 Enter 1 to 3 access numbers for the law
+                input type="integer" name="access_number" class="form"
+                input type="integer" name="access_number2" class="form"
+                input type="integer" name="access_number3" class="form"                                  
                 br/
                 br/
                 br/
                 h3 Enter 1 to 3 district for the law 
                 input type="text" name="district_name" class="form"
                 input type="text" name="district_name2" class="form"
-                input type="text" name="district_name3" class="form"                   
+                input type="text" name="district_name3" class="form"           
                 br/
                 br/
                 input type="submit" id="clicker" onclick="clickFunction()" value="Enact the law" class="form"
@@ -32,6 +35,22 @@ div class="normal"
 
                 br/
                 input type="reset" value="Reset" class="form"
+                br/
+                br/
+                br/
+                br/
+                br/
+                br/
+
+                h4 These are all the districts so far:
+                ul 
+                    - all_districtnames.each do |all_districtnames|
+                        br            
+                        li 
+                            p Name: #{all_districtnames["district_name"]} 
+                            p Access number: #{all_districtnames["access"]}
+                br/
+                br/
                 br/
                 br/
                 

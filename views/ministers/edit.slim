@@ -1,0 +1,40 @@
+div class="normal"
+    br/
+    br/ 
+    br/
+    
+    h2 Change name or access for the minister; "#{user_info['username']}"
+    br/
+    br/
+    br/
+    br/
+    br/
+    br/
+
+    form action="/ministers/#{user_info['id']}/update" method="POST" 
+        input type="text" name="name" value="#{user_info['username']}" class="form" 
+        br/
+        -if user_info["access"] != 1
+            input type="text" name="access" value="#{user_info['access']}" class="form" 
+            br/
+        br/
+        input type="submit" value="Update information" class="form" 
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+        br/
+

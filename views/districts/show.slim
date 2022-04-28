@@ -1,7 +1,7 @@
 div class="normal"
     br/
-    br/
-    h2 #{result["district_name"]}
+    br/ 
+    h1 #{result["district_name"]}
     br/
     p Has access number #{result["access"]}
 
@@ -10,12 +10,13 @@ div class="normal"
     br/
 
     h3 All laws in #{result["district_name"]}:
-
+    ul
+        - laws_of_district.each do |laws_of_district|
+            br            
+            li 
+                p #{laws_of_district["law_name"]}
     /! Här måste du skriva in alla lagar som har detta district
 
-    br/
-    br/
-    br/
     br/
     br/
     br/

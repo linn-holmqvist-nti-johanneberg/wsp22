@@ -2,7 +2,7 @@ div class="normal"
     br/
     br/
     h1 #{result["law_name"]}
-    p Verkställd den #{result["updated"]}
+    p Executed: #{result["updated"]}
     br/
     br/
 
@@ -13,16 +13,28 @@ div class="normal"
     br/
 
     h3 #{result["law_name"]} belongs to the districts;
-    br/
-    p #{result2["district_name"]} 
-    /! FIXA ATT DATABASENS MÅNGA TILL MÅNGA RELATION ÄR AUTOMATISK UPPDATERAD
-    /! Hade varit bra om den var en länk till en sida med alla lagar på ekonomi
+    br/ 
+    ul 
+        - all_districts.each do |all_districts|        
+            li 
+                p #{all_districts["district_name"]} 
+            br
+
+
+
     /! Dessutom måste alla distrikt nämnas och inte bara som detta fallet, en. 
     /! Dessutom beövs en tillbakaknapp
 
     br/
     br/
     h4 Which is handle by;
+    br/
+    ul 
+        - responseble.each do |responseble|        
+            li 
+                p #{responseble["username"]} 
+            br
+    br/
     br/
     br/
     br/

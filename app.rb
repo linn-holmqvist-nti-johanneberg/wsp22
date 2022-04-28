@@ -2,7 +2,8 @@ require 'sinatra'
 require 'slim'
 require 'sqlite3'
 require 'bcrypt'
-require 'byebug'
+
+require_relative './model.rb'
 
 
 enable :sessions
@@ -13,10 +14,6 @@ before do
   path = request.path_info
   pathMethod = request.request_method
   pathInclude = unProtectedRoutes.include?(path)
-  puts "user access"
-  p session[:user_access]
-  puts "user id"  
-  p session[:id]
 
   if  not pathInclude and request.path_info != '/error' and request.path_info != '/login/error' and request.path_info != '/login/unmatched' and request.path_info != '/laws/error' and pathMethod == "GET"
     if session[:id] == []
@@ -27,7 +24,10 @@ before do
 end
 
 get('/')  do
-  slim(:hem)
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  prime_minister = db.execute("SELECT username FROM user WHERE access = ?", 1).first
+  slim(:"hem", locals:{prime_minister:prime_minister})
 end 
 
 get('/showlogin') do
@@ -82,7 +82,7 @@ end
 get('/log_out') do
   session[:id] = []
   session[:user_access] = []
-  slim(:log_out)
+  slim(:"log_out")
 end
 
 get ('/register') do
@@ -114,10 +114,55 @@ post('/user/new') do
     end
 
   else
-    redirect('/login')
+    redirect('/showlogin')
   end
 end
 
+
+
+
+
+
+get('/ministers') do 
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  all_users = db.execute("SELECT * FROM user")
+  slim(:"ministers/index", locals:{all_users:all_users})
+end
+
+get('/ministers/:id') do 
+  id = params[:id].to_i
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  result = db.execute("SELECT * FROM user WHERE id = ?", id).first
+  district = db.execute("SELECT district_name FROM district WHERE access IN (SELECT access FROM user WHERE id = ?)", id).first
+  slim(:"ministers/show", locals:{result:result, district:district})
+end
+
+post('/ministers/:id/delete') do
+  id = params[:id].to_i
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  db.execute("DELETE FROM user WHERE id = ?", id)
+  redirect('/ministers')
+end
+
+get('/ministers/:id/edit') do
+  id = params[:id].to_i
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  user_info = db.execute("SELECT * FROM user WHERE id = ?", id).first
+  slim(:"/ministers/edit", locals:{user_info:user_info})
+end
+
+post('/ministers/:id/update') do 
+  id = params[:id].to_i
+  name = params[:name]
+  access = params[:access]
+  db = SQLite3::Database.new('db/laws.db')
+  db.execute("UPDATE user SET username = ?, access = ? WHERE id = ?", name, access, id)
+  redirect('/ministers') 
+end
 
 
 
@@ -155,7 +200,6 @@ get('/laws/new') do
   db = SQLite3::Database.new('db/laws.db')
   db.results_as_hash = true
   result = db.execute("SELECT district_name FROM district WHERE access = ?", session[:user_access]).first
-  p result
   slim(:"laws/new", locals:{result:result})
 end
 
@@ -172,7 +216,6 @@ post('/laws/new') do
   maybe_dubble=db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name)
   
   if maybe_dubble.empty?
-    # ta med id:t för submitknappen
     db.execute("INSERT INTO laws (law_name, description, updated) VALUES (?,?,?)", law_name, description, time2)
     db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name, access_number)
     law_id = db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name).first.first
@@ -186,28 +229,51 @@ post('/laws/new') do
 end
 
 get('/laws/add') do
-  slim(:"laws/add")
+  db = SQLite3::Database.new('db/laws.db')
+  db.results_as_hash = true
+  all_districtnames = db.execute("SELECT * FROM district")
+  slim(:"laws/add", locals:{all_districtnames:all_districtnames})
 end 
 
 post('/laws/add') do
   law_name = params[:law_name]
   description = params[:description]
   district_name = params[:district_name]
-  access_number = params[:access_number].to_i
+  district_name2 = params[:district_name2]
+  district_name3 = params[:district_name3]
+  access_number = params[:access_number]
+  access_number2 = params[:access_number2]
+  access_number3 = params[:access_number3]
   time = Time.new
   time2=time.to_s
-  print "hello"
-  print time2
 
   db = SQLite3::Database.new('db/laws.db')
   maybe_dubble=db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name)
   if maybe_dubble.empty?
-    # ta med id:t för submitknappen
     db.execute("INSERT INTO laws (law_name, description, updated) VALUES (?,?,?)", law_name, description, time2)
-    db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name, access_number)
-    law_id = db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name).first.first
-    district_id = db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name).first.first
-    db.execute("INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)", law_id, district_id, time2)
+
+    if district_name != ""
+      db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name, access_number)
+      law_id = db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name).first.first
+      district_id = db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name).first.first
+      db.execute("INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)", law_id, district_id, time2)
+    end
+    
+    if district_name2 != "" || access_number2 != "" 
+
+      db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name2, access_number2)
+      law_id = db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name).first.first
+      district_id = db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name2).first.first
+      db.execute("INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)", law_id, district_id, time2)
+    end
+
+    if district_name3 != ""  || access_number3 != "" 
+      db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name3, access_number3)
+      law_id = db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name).first.first
+      district_id = db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name3).first.first
+      db.execute("INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)", law_id, district_id, time2)
+    end
+
     redirect('/all_laws')
   else
       redirect('laws/error')
@@ -236,9 +302,9 @@ get('/laws/:id') do
   db = SQLite3::Database.new('db/laws.db')
   db.results_as_hash = true
   result = db.execute("SELECT * FROM laws WHERE law_id = ?", id).first
-  result2 = db.execute("SELECT district_name FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)", id).first
-
-  slim(:"laws/show", locals:{result:result,result2:result2})
+  all_districts = db.execute("SELECT * FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)", id)
+  responseble = db.execute("SELECT username FROM user WHERE access IN (SELECT access FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?))", id)
+  slim(:"laws/show", locals:{result:result, all_districts:all_districts, responseble:responseble})
 end
 
 post('/laws/:id/delete') do
@@ -299,7 +365,6 @@ end
 post('/districts/new') do
   district_name = params[:district_name]
   access_number = params[:access_number]
-  p access_number
 
   db = SQLite3::Database.new('db/laws.db')
   maybe_dubble=db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name)
@@ -353,5 +418,6 @@ get('/districts/:id') do
   db = SQLite3::Database.new('db/laws.db')
   db.results_as_hash = true
   result = db.execute("SELECT * FROM district WHERE district_id = ?", id).first
-  slim(:"districts/show", locals:{result:result})
-end
+  all_districts_law = db.execute("SELECT * FROM laws WHERE law_id IN (SELECT law_id FROM law_district_relation WHERE district_id = ?)", id)
+  slim(:"districts/show", locals:{result:result, laws_of_district:all_districts_law})
+end 

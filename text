@@ -5,10 +5,8 @@ register ska synas bara för statsministern
 new, edit och destroy ska delvis vara synig för ministrar och helt synlig för statsministern
 
 Kvar:
-- Ministrarnas access och vad de kan göra
 - Länk på show laws som leder till alla lagar med det distriktet
 - alla lagar ska dyka upp som finns med law ekonomi
-- Många många relationen i databasen
 - Submitknappen så att man kan lägga till flertalet lagar i new law
 
 
