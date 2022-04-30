@@ -10,3 +10,27 @@ Kvar:
 - Submitknappen så att man kan lägga till flertalet lagar i new law
 
 
+------------------------------------------
+post ("/login") do
+    username=params[:username]
+    password=params[:password]
+
+    result = login(username, password)
+    pwdigest = result["Password"]
+    id = result["UserId"]
+
+    if BCrypt::Password.new(pwdigest) == password
+        session[:id] = id
+        redirect("/my_site")
+    else
+        redirect("error_password")
+    end
+end
+
+
+def login(username, password)
+    db = SQLite3::Database.new("db/fandoms.db")
+    db.results_as_hash = true
+    result = db.execute("SELECT * FROM user WHERE Username = ?", username).first
+    return result
+end

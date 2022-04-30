@@ -24,9 +24,7 @@ before do
 end
 
 get('/')  do
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  prime_minister = db.execute("SELECT username FROM user WHERE access = ?", 1).first
+  prime_minister = hem()
   slim(:"hem", locals:{prime_minister:prime_minister})
 end 
 
@@ -57,14 +55,14 @@ end
 post('/login') do
   username = params[:username]
   password = params[:password]
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM user WHERE username = ?", username)
+
+  result = login(username, password)
+  
 
   if result.empty?
     redirect('/login/error')
   end  
-
+  
   password_digest= result.first["password"]
   id = result.first["id"]
   access = result.first["access"]
@@ -95,55 +93,36 @@ end
 
 post('/user/new') do
   username = params[:username]
-  access = params[:access]
   password = params[:password]
   password_confirm = params[:password_confirm]
   access = params[:access]
 
   db = SQLite3::Database.new('db/laws.db')
-  result=db.execute("SELECT id FROM user WHERE username = ?", username)
-  if result.empty?
-    if (password==password_confirm)
-      password_digest = BCrypt::Password.create(password)
+  result= register(username, access, password, password_confirm)
   
-      db.execute("INSERT INTO user (username, password, access) VALUES (?, ?, ?)", username, password_digest, access)
-      redirect('/')
-
-    else
-      redirect('/register/error')
-    end
+  if true
+    redirect('/showlogin')
 
   else
-    redirect('/showlogin')
+    redirect('/register/error')
   end
 end
 
-
-
-
-
-
 get('/ministers') do 
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  all_users = db.execute("SELECT * FROM user")
+  all_users = all_users()
   slim(:"ministers/index", locals:{all_users:all_users})
 end
 
 get('/ministers/:id') do 
   id = params[:id].to_i
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM user WHERE id = ?", id).first
-  district = db.execute("SELECT district_name FROM district WHERE access IN (SELECT access FROM user WHERE id = ?)", id).first
+  result = a_minister(id)
+  district = a_ministers_district(id) 
   slim(:"ministers/show", locals:{result:result, district:district})
 end
 
 post('/ministers/:id/delete') do
   id = params[:id].to_i
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  db.execute("DELETE FROM user WHERE id = ?", id)
+  minister_delete(id)
   redirect('/ministers')
 end
 
