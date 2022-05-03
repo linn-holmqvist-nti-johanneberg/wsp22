@@ -3,21 +3,36 @@ div class="normal"
     br/ 
     br/
     
-    h2 Change the law; "#{result['law_name']}"
-    br/
-    br/
+    h2 Change the law; "#{all_info_law['law_name']}"
     br/
     br/
     br/
     br/
 
-    form action="/laws/#{result['law_id']}/update" method="POST" 
-        input type="text" name="name" value="#{result['law_name']}" class="form" 
+
+    form action="/laws/#{all_info_law['law_id']}/update" method="POST" 
+        h4 Name of law:
+        input type="text" name="name" value="#{all_info_law['law_name']}" class="form" 
         br/
-        input type="text" name="description" value="#{result['description']}" class="form" 
         br/
-        input type="text" name="district" value="#{result2['district_name']}" class="form" 
+        h4 Description: 
+        input type="text" name="description" value="#{all_info_law['description']}" class="form" 
         br/
+        br/
+        
+        -if session[:user_access] == 1 
+            h4 Districts:
+            - if all_info_district1 != "" 
+                input type="text" name="district1" value="#{all_info_district1['district_name']}" class="form" 
+                br/
+            
+            - if all_info_district2 != ""
+                input type="text" name="district2" value="#{all_info_district2['district_name']}" class="form" 
+                br/
+                
+            - if all_info_district3 != "" 
+                input type="text" name="district3" value="#{all_info_district3['district_name']}" class="form" 
+                br/
         br/
         input type="submit" value="Update the law" class="form" 
         br/

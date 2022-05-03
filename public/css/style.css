@@ -25,6 +25,7 @@ nav {
 .form {
   color: rgb(33, 96, 136);
   background-color: white;
+  width: auto;
 }
 
 .link_nav {
@@ -178,7 +179,7 @@ h1 {
   width: 30vw; 
   float: right;
   margin-top: 20vh;
-  margin-right: 15vw;
+  margin-right: 13vw;
 }
 
 

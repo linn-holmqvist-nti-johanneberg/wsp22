@@ -8,19 +8,13 @@ require_relative './model.rb'
 
 enable :sessions
 
-unProtectedRoutes = ['/', '/register', '/showlogin', '/laws', '/log_out', '/laws/:id']
+unProtectedRoutes = ["/", "/register", "/showlogin", "/laws", "/log_out", "/laws", "/districts", "/districts"]
+#laws/:id och districts/:id behövs här 
 
 before do
-  path = request.path_info
-  pathMethod = request.request_method
-  pathInclude = unProtectedRoutes.include?(path)
-
-  if  not pathInclude and request.path_info != '/error' and request.path_info != '/login/error' and request.path_info != '/login/unmatched' and request.path_info != '/laws/error' and pathMethod == "GET"
-    if session[:id] == []
-      redirect('/error')
-    end
+  if security(unProtectedRoutes)
+    redirect('/error')
   end
-  
 end
 
 get('/')  do
@@ -97,7 +91,6 @@ post('/user/new') do
   password_confirm = params[:password_confirm]
   access = params[:access]
 
-  db = SQLite3::Database.new('db/laws.db')
   result= register(username, access, password, password_confirm)
   
   if true
@@ -128,9 +121,7 @@ end
 
 get('/ministers/:id/edit') do
   id = params[:id].to_i
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  user_info = db.execute("SELECT * FROM user WHERE id = ?", id).first
+  user_info = minister_edit(id)
   slim(:"/ministers/edit", locals:{user_info:user_info})
 end
 
@@ -138,27 +129,17 @@ post('/ministers/:id/update') do
   id = params[:id].to_i
   name = params[:name]
   access = params[:access]
-  db = SQLite3::Database.new('db/laws.db')
-  db.execute("UPDATE user SET username = ?, access = ? WHERE id = ?", name, access, id)
+  minister_update(name, access, id)
   redirect('/ministers') 
 end
 
-
-
-
-
-
 get('/laws') do
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM laws")
+  result = all_laws()
   slim(:"laws/index", locals:{the_laws:result})
 end
 
 get('/all_laws') do
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM laws")
+  result = all_laws()
   slim(:"laws/index_loged_in", locals:{the_laws:result})
 end
 
@@ -166,136 +147,92 @@ get('/laws/error') do
   slim(:"/laws/errors")
 end
 
-before('/laws/new') do
-  if session[:user_access] == 1
-    redirect('/laws/add')
-  elsif session[:user_access] == []
-    redirect('/error')
-  end
-  
-end
-
 get('/laws/new') do
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT district_name FROM district WHERE access = ?", session[:user_access]).first
-  slim(:"laws/new", locals:{result:result})
+  all_info = law_create()
+  result = all_info[0]
+  all_districtnames = all_info[1]
+  slim(:"laws/new", locals:{result:result, all_districtnames:all_districtnames})
 end
 
 post('/laws/new') do
   law_name = params[:law_name]
   description = params[:description]
-    
-  time = Time.new
-  time2 = time.to_s
+  time = Time.now.strftime('%a, %d %b %Y %H:%M:%S').to_s
 
-  db = SQLite3::Database.new('db/laws.db')
-  district_name = db.execute("SELECT district_name FROM district WHERE access = ?", session[:user_access])
-  access_number = session[user_access]
-  maybe_dubble=db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name)
+
+  if no_double(law_name)
+    if session[:user_access] == 1
+      district_name = params[:district_name]
+      district_name2 = params[:district_name2]
+      district_name3 = params[:district_name3]
+      access_number = params[:access_number]
+      access_number2 = params[:access_number2]
+      access_number3 = params[:access_number3]
+      
+      law_new_president(law_name, description, time)
+
+      enter_new_lawdistrict(law_name, district_name, access_number, time)
+      enter_new_lawdistrict(law_name, district_name2, access_number2, time)
+      enter_new_lawdistrict(law_name, district_name3, access_number3, time)
+
+      redirect('/all_laws')
   
-  if maybe_dubble.empty?
-    db.execute("INSERT INTO laws (law_name, description, updated) VALUES (?,?,?)", law_name, description, time2)
-    db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name, access_number)
-    law_id = db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name).first.first
-    district_id = db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name).first.first
-    db.execute("INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)", law_id, district_id, time2)
-    redirect('/all_laws')
+    elsif session[:user_access] != []
+      district_name = new_law_ministers(law_name, description, time)
+      district_name = district_name["district_name"]
+      new_law_ministers_part2(law_name, time, district_name)
+
+      redirect('/all_laws')
+
+    else 
+      redirect('/error')
+    end
   else
-    redirect('laws/error')
+    redirect('/laws/error')
   end
 
 end
 
-get('/laws/add') do
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  all_districtnames = db.execute("SELECT * FROM district")
-  slim(:"laws/add", locals:{all_districtnames:all_districtnames})
-end 
-
-post('/laws/add') do
-  law_name = params[:law_name]
-  description = params[:description]
-  district_name = params[:district_name]
-  district_name2 = params[:district_name2]
-  district_name3 = params[:district_name3]
-  access_number = params[:access_number]
-  access_number2 = params[:access_number2]
-  access_number3 = params[:access_number3]
-  time = Time.new
-  time2=time.to_s
-
-  db = SQLite3::Database.new('db/laws.db')
-  maybe_dubble=db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name)
-  if maybe_dubble.empty?
-    db.execute("INSERT INTO laws (law_name, description, updated) VALUES (?,?,?)", law_name, description, time2)
-
-    if district_name != ""
-      db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name, access_number)
-      law_id = db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name).first.first
-      district_id = db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name).first.first
-      db.execute("INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)", law_id, district_id, time2)
-    end
-    
-    if district_name2 != "" || access_number2 != "" 
-
-      db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name2, access_number2)
-      law_id = db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name).first.first
-      district_id = db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name2).first.first
-      db.execute("INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)", law_id, district_id, time2)
-    end
-
-    if district_name3 != ""  || access_number3 != "" 
-      db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name3, access_number3)
-      law_id = db.execute("SELECT law_id FROM laws WHERE law_name = ?", law_name).first.first
-      district_id = db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name3).first.first
-      db.execute("INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)", law_id, district_id, time2)
-    end
-
-    redirect('/all_laws')
-  else
-      redirect('laws/error')
-  end
-end
-
-get('/laws/add_district') do
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM laws")
-  result2 = db.execute("SELECT * FROM district")
-  slim(:"laws/add_law's_district", locals:{the_laws:result, the_district:result2})
-end
-
-get('/laws/:id/edit') do
+get('/laws/:id/edit') do  
   id = params[:id].to_i
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM laws WHERE law_id = ?", id).first
-  result2 = db.execute("SELECT * FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)", id).first
-  slim(:"/laws/edit", locals:{result:result, result2:result2})
+  all = laws_edit(id)
+  all_info_law = all[0]
+
+  if all[1] == nil
+    all_info_district1 = ""
+  else
+    all_info_district1 = all[1]
+  end
+
+  if all[2] == nil
+    all_info_district2 = ""
+  else
+    all_info_district2 = all[2]
+  end
+
+  if all[3] == nil
+    all_info_district3 = ""
+  else
+    all_info_district3 = all[3]
+  end
+  
+  slim(:"/laws/edit", locals:{all_info_law:all_info_law, all_info_district1:all_info_district1, all_info_district2:all_info_district2, all_info_district3:all_info_district3})
 end
 
 get('/laws/:id') do 
   id = params[:id].to_i
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM laws WHERE law_id = ?", id).first
-  all_districts = db.execute("SELECT * FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)", id)
-  responseble = db.execute("SELECT username FROM user WHERE access IN (SELECT access FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?))", id)
+  all = laws_id(id)
+  result = all[0]
+  all_districts = all[1]
+  responseble = all[2]
+
   slim(:"laws/show", locals:{result:result, all_districts:all_districts, responseble:responseble})
 end
 
 post('/laws/:id/delete') do
   id = params[:id].to_i
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  district_access = db.execute("SELECT access FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)", id).first
-  if session[:user_access] == district_access || session[:user_access] == 1
-    db.execute("DELETE FROM laws WHERE law_id = ?", id)
-    db.execute("DELETE FROM law_district_relation WHERE law_id = ?", id)
-    redirect('/all_laws')
-  else 
+
+  if laws_delete(id) == false
     redirect('/authorised')
   end
 end
@@ -304,34 +241,49 @@ post('/laws/:id/update') do
   id = params[:id].to_i
   name = params[:name]
   description = params[:description]
-  db = SQLite3::Database.new('db/laws.db')
-  district_access = db.execute("SELECT access FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)", id).first
-  if session[:user_access] == district_access || session[:user_access] == 1
-    db.execute("UPDATE laws SET law_name = ?, description = ? WHERE law_id = ?", name, description, id)
-    redirect('/all_laws')
-    #db.execute("UPDATE district SET district_name = ?", ) 
-  else
+  
+  if laws_update(id, name, description) == false
     redirect('/authorised')
   end
+
+  result = laws_update(id, name, description)
+  district_access1 = result[0]
+  district_access2 = result[1]
+  district_access3 = result[2]
+
+  if session[:user_access] == 1 
+
+    district_name1 = params[:district1]
+    district_name2 = params[:district2]
+    district_name3 = params[:district3]      
+
+
+    if district_name1 != nil 
+      law_update_president(district_name1, district_access1)
+    end
+
+    if district_name2 != nil 
+      law_update_president(district_name2, district_access2)
+    end
+
+    if district_name3 != nil 
+      law_update_president(district_name3, district_access3)
+    end
+
+  end
+
+  redirect('/all_laws') 
 end
-
-
-
-
-
-
-
-
-
-
 
 get('/districts') do
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM district")
-  slim(:"districts/index", locals:{the_districts:result})
+  district_info = district()
+  slim(:"districts/index", locals:{the_districts:district_info})
 end
 
+get('/all_districts') do
+  district_info = district()
+  slim(:"districts/index_loged_in", locals:{the_districts:district_info})
+end
 
 get('/districts/new') do
   slim(:"districts/new")
@@ -345,21 +297,16 @@ post('/districts/new') do
   district_name = params[:district_name]
   access_number = params[:access_number]
 
-  db = SQLite3::Database.new('db/laws.db')
-  maybe_dubble=db.execute("SELECT district_id FROM district WHERE district_name = ?", district_name)
-  if maybe_dubble.empty?
-      db.execute("INSERT INTO district (district_name, access) VALUES (?,?)", district_name, access_number)
+  if district_new(district_name, access_number)
+    redirect('/all_districts')
   else
-    redirect('districts/error')
+    redirect('/districts/error')
   end
 end
 
 get('/districts/:id/edit') do
   id = params[:id].to_i
-
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM district WHERE district_id = ?", id).first
+  result = district_edit(id)
   slim(:"/districts/edit", locals:{result:result})
 end
 
@@ -367,12 +314,9 @@ post('/districts/:id/update') do
   id = params[:id].to_i
   name = params[:name]
   access = params[:access]
-  db = SQLite3::Database.new('db/laws.db')
-  district_access = db.execute("SELECT access FROM district WHERE district_id = ?", id)
 
-  if session[:user_access] == district_access || session[:user_access] == 1
-    db.execute("UPDATE district SET district_name = ?, access = ? WHERE district_id = ?", name, access, id)
-    redirect('/districts')
+  if district_update(id, name, access)
+    redirect('/all_districts')
   else
     redirect('/authorised')
   end
@@ -380,13 +324,10 @@ end
 
 post('/districts/:id/delete') do
   id = params[:id].to_i
-  db = SQLite3::Database.new('db/laws.db')
-  district_access = db.execute("SELECT access FROM district WHERE district_id = ?", id)
 
-  if session[:user_access] == district_access || session[:user_access] == 1
-    db.execute("DELETE FROM district WHERE district_id = ?", id)
-    db.execute("DELETE FROM law_district_relation WHERE district_id = ?", id)
-    redirect('/districts')
+
+  if district_delete(id)
+    redirect('/all_districts')
   else 
     redirect('/authorised')
   end
@@ -394,9 +335,8 @@ end
 
 get('/districts/:id') do 
   id = params[:id].to_i
-  db = SQLite3::Database.new('db/laws.db')
-  db.results_as_hash = true
-  result = db.execute("SELECT * FROM district WHERE district_id = ?", id).first
-  all_districts_law = db.execute("SELECT * FROM laws WHERE law_id IN (SELECT law_id FROM law_district_relation WHERE district_id = ?)", id)
-  slim(:"districts/show", locals:{result:result, laws_of_district:all_districts_law})
+  result = a_district(id)
+  info_district = result[0]
+  all_laws = result[1]
+  slim(:"districts/show", locals:{result:info_district, laws_of_district:all_laws})
 end 
