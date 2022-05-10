@@ -8,8 +8,8 @@ require_relative './model.rb'
 
 enable :sessions
 
-unProtectedRoutes = ["/", "/register", "/showlogin", "/laws", "/log_out", "/laws", "/districts", "/districts"]
-#laws/:id och districts/:id behövs här 
+unProtectedRoutes = ["/", "/register", "/showlogin", "/laws", "/log_out", "/laws", "/districts", "/laws/*/allowed", "/district/*/allowed"]
+#ändra routenamns om det går, så de blir som de två sista på raden ovan. laws/:id och districts/:id behövs här 
 
 before do
   if security(unProtectedRoutes)
