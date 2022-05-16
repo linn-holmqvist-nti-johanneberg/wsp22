@@ -8,19 +8,26 @@ require_relative './model.rb'
 
 enable :sessions
 
-unProtectedRoutes = ["/", "/register", "/showlogin", "/laws", "/log_out", "/laws", "/districts", "/laws/*/allowed", "/district/*/allowed"]
-#ändra routenamns om det går, så de blir som de två sista på raden ovan. laws/:id och districts/:id behövs här 
+unProtectedRoutes = ["/", "/register", "/showlogin", "/laws", "/log_out", "/districts", "/laws/*/allowed", "/district/*/allowed"]
 
 before do
   if security(unProtectedRoutes)
     redirect('/error')
   end
-end
+end 
 
 get('/')  do
   prime_minister = hem()
   slim(:"hem", locals:{prime_minister:prime_minister})
 end 
+
+get('/empty_field') do
+  slim(:something_empty)
+end
+
+get('/length') do
+  slim(:length)
+end
 
 get('/showlogin') do
   session[:id] = []
@@ -91,6 +98,26 @@ post('/user/new') do
   password_confirm = params[:password_confirm]
   access = params[:access]
 
+  if is_it_empty(username)
+    redirect('/empty_field')
+  end
+
+  if is_it_empty(password)
+    redirect('/empty_field')
+  end
+  
+  if is_it_empty(password_confirm)
+    redirect('/empty_field')
+  end
+
+  if is_it_empty(access)
+    redirect('/empty_field')
+  end
+
+  if long(username)
+    redirect('/length')
+  end
+
   result= register(username, access, password, password_confirm)
   
   if true
@@ -129,6 +156,23 @@ post('/ministers/:id/update') do
   id = params[:id].to_i
   name = params[:name]
   access = params[:access]
+
+  if is_it_empty(access)
+    redirect('/empty_field')
+  end
+
+  if is_it_empty(id)
+    redirect('/empty_field')
+  end
+
+  if is_it_empty(name)
+    redirect('/empty_field')
+  end
+
+  if long(name)
+    redirect('/length')
+  end
+
   minister_update(name, access, id)
   redirect('/ministers') 
 end
@@ -159,6 +203,13 @@ post('/laws/new') do
   description = params[:description]
   time = Time.now.strftime('%a, %d %b %Y %H:%M:%S').to_s
 
+  if is_it_empty(law_name)
+    redirect('/empty_field')
+  end
+
+  if is_it_empty(description)
+    redirect('/empty_field')
+  end
 
   if no_double(law_name)
     if session[:user_access] == 1
@@ -219,7 +270,7 @@ get('/laws/:id/edit') do
   slim(:"/laws/edit", locals:{all_info_law:all_info_law, all_info_district1:all_info_district1, all_info_district2:all_info_district2, all_info_district3:all_info_district3})
 end
 
-get('/laws/:id') do 
+get('/laws/:id/allowed') do 
   id = params[:id].to_i
   all = laws_id(id)
   result = all[0]
@@ -232,7 +283,9 @@ end
 post('/laws/:id/delete') do
   id = params[:id].to_i
 
-  if laws_delete(id) == false
+  if laws_delete(id) 
+    redirect('/all_laws')
+  else
     redirect('/authorised')
   end
 end
@@ -242,6 +295,14 @@ post('/laws/:id/update') do
   name = params[:name]
   description = params[:description]
   
+  if is_it_empty(name)
+    redirect('/empty_field')
+  end  
+
+  if is_it_empty(description)
+    redirect('/empty_field')
+  end
+
   if laws_update(id, name, description) == false
     redirect('/authorised')
   end
@@ -297,6 +358,14 @@ post('/districts/new') do
   district_name = params[:district_name]
   access_number = params[:access_number]
 
+  if is_it_empty(district_name)
+    redirect('/empty_field')
+  end
+
+  if is_it_empty(access_number)
+    redirect('/empty_field')
+  end
+
   if district_new(district_name, access_number)
     redirect('/all_districts')
   else
@@ -314,6 +383,14 @@ post('/districts/:id/update') do
   id = params[:id].to_i
   name = params[:name]
   access = params[:access]
+
+  if is_it_empty(access)
+    redirect('/empty_field')
+  end
+
+  if is_it_empty(name)
+    redirect('/empty_field')
+  end
 
   if district_update(id, name, access)
     redirect('/all_districts')
@@ -333,7 +410,7 @@ post('/districts/:id/delete') do
   end
 end
 
-get('/districts/:id') do 
+get('/districts/:id/allowed') do 
   id = params[:id].to_i
   result = a_district(id)
   info_district = result[0]

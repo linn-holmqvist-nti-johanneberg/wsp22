@@ -11,6 +11,18 @@ def database(path)
     return db
 end
 
+def is_it_empty(user_input)
+    if user_input.empty?
+        return true
+    end 
+end
+
+def long(user_input)
+   if user_input < 2 or user_input > 70
+        return true
+   end
+end
+
 def security(unProtectedRoutes)
     path = request.path_info
     pathMethod = request.request_method
@@ -230,7 +242,6 @@ def laws_delete(id)
     if session[:user_access] == district_access || session[:user_access] == 1
         db.execute("DELETE FROM laws WHERE law_id = ?", id)
         db.execute("DELETE FROM law_district_relation WHERE law_id = ?", id)
-        redirect('/all_laws')
         return true
     else 
         return false
@@ -278,7 +289,6 @@ def district_delete(id)
     if session[:user_access] == district_access || session[:user_access] == 1
         db.execute("DELETE FROM district WHERE district_id = ?", id)
         db.execute("DELETE FROM law_district_relation WHERE district_id = ?", id)
-        redirect('/all_districts')
         return true
     else 
         return false

@@ -1,14 +1,14 @@
 div class="normal"
     br/
     br/
-    h1 All laws of Espeosia
+    h1 All district of Espeosia
     
     ul 
         - the_districts.each do |the_districts|
             br/    
             br/        
             li 
-                a href="districts/#{the_districts['district_id']}" class="lagnamnet" #{the_districts["district_name"]} 
+                a href="districts/#{the_districts['district_id']}/allowed" class="lagnamnet" #{the_districts["district_name"]} 
     br/
     br/
     br/
