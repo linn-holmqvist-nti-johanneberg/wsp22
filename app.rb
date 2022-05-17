@@ -5,8 +5,10 @@ require 'bcrypt'
 
 require_relative './model.rb'
 
-
 enable :sessions
+
+include Model
+
 
 unProtectedRoutes = ["/", "/register", "/showlogin", "/laws", "/log_out", "/districts", "/laws/*/allowed", "/district/*/allowed"]
 
@@ -84,12 +86,17 @@ get('/log_out') do
   slim(:"log_out")
 end
 
-get ('/register') do
+get('/register') do
   slim(:register)
 end
 
-get ('/register/error') do
+get('/register/error') do
   slim(:register_error)
+end
+
+
+get('/cool_down') do
+  slim(:cool_down)
 end
 
 post('/user/new') do
@@ -118,9 +125,21 @@ post('/user/new') do
     redirect('/length')
   end
 
+  if session[:time] == nil 
+    session[:time] = 0
+  end
+  
+  spam =  cool_down(session[:time])
+  session[:time] = Time.now.to_i 
+  
+  if spam 
+    redirect('/cool_down')
+  end
+  
+  
   result= register(username, access, password, password_confirm)
   
-  if true
+  if result
     redirect('/showlogin')
 
   else
@@ -141,9 +160,13 @@ get('/ministers/:id') do
 end
 
 post('/ministers/:id/delete') do
-  id = params[:id].to_i
-  minister_delete(id)
-  redirect('/ministers')
+  if session[:user_access] == 1
+    id = params[:id].to_i
+    minister_delete(id)
+    redirect('/ministers')
+  else
+    redirect('/authorised')
+  end
 end
 
 get('/ministers/:id/edit') do
@@ -153,28 +176,32 @@ get('/ministers/:id/edit') do
 end
 
 post('/ministers/:id/update') do 
-  id = params[:id].to_i
-  name = params[:name]
-  access = params[:access]
+  if session[:user_access] == 1
+    id = params[:id].to_i
+    name = params[:name]
+    access = params[:access]
 
-  if is_it_empty(access)
-    redirect('/empty_field')
+    if is_it_empty(access)
+      redirect('/empty_field')
+    end
+
+    if is_it_empty(id)
+      redirect('/empty_field')
+    end
+
+    if is_it_empty(name)
+      redirect('/empty_field')
+    end
+
+    if long(name)
+      redirect('/length')
+    end
+
+    minister_update(name, access, id)
+    redirect('/ministers') 
+  else
+    redirect('/authorised')
   end
-
-  if is_it_empty(id)
-    redirect('/empty_field')
-  end
-
-  if is_it_empty(name)
-    redirect('/empty_field')
-  end
-
-  if long(name)
-    redirect('/length')
-  end
-
-  minister_update(name, access, id)
-  redirect('/ministers') 
 end
 
 get('/laws') do

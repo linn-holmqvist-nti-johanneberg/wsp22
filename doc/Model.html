@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Model
+  
+    &mdash; Documentation by YARD 0.9.27
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Model";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/custom.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (M)</a> &raquo;
+    
+    
+    <span class="title">Model</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Model
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>model.rb</dd>
+  </dl>
+  
+</div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#a_district-instance_method" title="#a_district (instance method)">#<strong>a_district</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#a_minister-instance_method" title="#a_minister (instance method)">#<strong>a_minister</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#a_ministers_district-instance_method" title="#a_ministers_district (instance method)">#<strong>a_ministers_district</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_laws-instance_method" title="#all_laws (instance method)">#<strong>all_laws</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_users-instance_method" title="#all_users (instance method)">#<strong>all_users</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cool_down-instance_method" title="#cool_down (instance method)">#<strong>cool_down</strong>(time_before)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#database-instance_method" title="#database (instance method)">#<strong>database</strong>(path)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district-instance_method" title="#district (instance method)">#<strong>district</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district_delete-instance_method" title="#district_delete (instance method)">#<strong>district_delete</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district_edit-instance_method" title="#district_edit (instance method)">#<strong>district_edit</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district_new-instance_method" title="#district_new (instance method)">#<strong>district_new</strong>(district_name, access_number)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#district_update-instance_method" title="#district_update (instance method)">#<strong>district_update</strong>(id, name, access)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enter_new_lawdistrict-instance_method" title="#enter_new_lawdistrict (instance method)">#<strong>enter_new_lawdistrict</strong>(law_name, district_name, access_number, time)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hem-instance_method" title="#hem (instance method)">#<strong>hem</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_it_empty-instance_method" title="#is_it_empty (instance method)">#<strong>is_it_empty</strong>(user_input)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#law_create-instance_method" title="#law_create (instance method)">#<strong>law_create</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#law_new_president-instance_method" title="#law_new_president (instance method)">#<strong>law_new_president</strong>(law_name, description, time)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#law_update_president-instance_method" title="#law_update_president (instance method)">#<strong>law_update_president</strong>(district_name, district_access)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#laws_delete-instance_method" title="#laws_delete (instance method)">#<strong>laws_delete</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#laws_edit-instance_method" title="#laws_edit (instance method)">#<strong>laws_edit</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#laws_id-instance_method" title="#laws_id (instance method)">#<strong>laws_id</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#laws_update-instance_method" title="#laws_update (instance method)">#<strong>laws_update</strong>(id, name, description)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#login-instance_method" title="#login (instance method)">#<strong>login</strong>(username, password)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#long-instance_method" title="#long (instance method)">#<strong>long</strong>(user_input)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#minister_delete-instance_method" title="#minister_delete (instance method)">#<strong>minister_delete</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#minister_edit-instance_method" title="#minister_edit (instance method)">#<strong>minister_edit</strong>(id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#minister_update-instance_method" title="#minister_update (instance method)">#<strong>minister_update</strong>(name, access, id)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new_law_ministers-instance_method" title="#new_law_ministers (instance method)">#<strong>new_law_ministers</strong>(law_name, description, time)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new_law_ministers_part2-instance_method" title="#new_law_ministers_part2 (instance method)">#<strong>new_law_ministers_part2</strong>(law_name, time, district_name)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#no_double-instance_method" title="#no_double (instance method)">#<strong>no_double</strong>(law_name)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#register-instance_method" title="#register (instance method)">#<strong>register</strong>(username, access, password, password_confirm)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#samepw-instance_method" title="#samepw (instance method)">#<strong>samepw</strong>(pw, pwc)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#security-instance_method" title="#security (instance method)">#<strong>security</strong>(unProtectedRoutes)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="a_district-instance_method">
+  
+    #<strong>a_district</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+308
+309
+310
+311
+312
+313</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 308</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_a_district'>a_district</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_district_info'>district_info</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM district WHERE district_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='id identifier rubyid_all_districts_law'>all_districts_law</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM laws WHERE law_id IN (SELECT law_id FROM law_district_relation WHERE district_id = ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_district_info'>district_info</span><span class='comma'>,</span> <span class='id identifier rubyid_all_districts_law'>all_districts_law</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="a_minister-instance_method">
+  
+    #<strong>a_minister</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 96</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_a_minister'>a_minister</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM user WHERE id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="a_ministers_district-instance_method">
+  
+    #<strong>a_ministers_district</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_a_ministers_district'>a_ministers_district</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_district'><span class='object_link'><a href="#district-instance_method" title="Model#district (method)">district</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT district_name FROM district WHERE access IN (SELECT access FROM user WHERE id = ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_district'><span class='object_link'><a href="#district-instance_method" title="Model#district (method)">district</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="all_laws-instance_method">
+  
+    #<strong>all_laws</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+124
+125
+126
+127
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 124</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_laws'>all_laws</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM laws</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="all_users-instance_method">
+  
+    #<strong>all_users</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_all_users'>all_users</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_all_users'>all_users</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM user</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_all_users'>all_users</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cool_down-instance_method">
+  
+    #<strong>cool_down</strong>(time_before)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cool_down'>cool_down</span><span class='lparen'>(</span><span class='id identifier rubyid_time_before'>time_before</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_tidskillnad'>tidskillnad</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>-</span> <span class='id identifier rubyid_time_before'>time_before</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_tidskillnad'>tidskillnad</span> <span class='op'>&lt;</span> <span class='float'>1.5</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="database-instance_method">
+  
+    #<strong>database</strong>(path)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13
+14</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_database'>database</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_results_as_hash'>results_as_hash</span> <span class='op'>=</span> <span class='kw'>true</span> 
+    <span class='kw'>return</span> <span class='id identifier rubyid_db'>db</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district-instance_method">
+  
+    #<strong>district</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+261
+262
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 261</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district'>district</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM district</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district_delete-instance_method">
+  
+    #<strong>district_delete</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 295</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district_delete'>district_delete</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_district_access'>district_access</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT access FROM district WHERE district_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_district_access'>district_access</span> <span class='op'>||</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span>
+        <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM district WHERE district_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM law_district_relation WHERE district_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>else</span> 
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district_edit-instance_method">
+  
+    #<strong>district_edit</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+278
+279
+280
+281
+282</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 278</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district_edit'>district_edit</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_district_info'>district_info</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM district WHERE district_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_district_info'>district_info</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district_new-instance_method">
+  
+    #<strong>district_new</strong>(district_name, access_number)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 267</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district_new'>district_new</span><span class='lparen'>(</span><span class='id identifier rubyid_district_name'>district_name</span><span class='comma'>,</span> <span class='id identifier rubyid_access_number'>access_number</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_maybe_dubble'>maybe_dubble</span><span class='op'>=</span><span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT district_id FROM district WHERE district_name = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_district_name'>district_name</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_maybe_dubble'>maybe_dubble</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO district (district_name, access) VALUES (?,?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_district_name'>district_name</span><span class='comma'>,</span> <span class='id identifier rubyid_access_number'>access_number</span><span class='rparen'>)</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>else</span> 
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="district_update-instance_method">
+  
+    #<strong>district_update</strong>(id, name, access)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 284</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_district_update'>district_update</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_access'>access</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    
+    <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_access'>access</span> <span class='op'>||</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span>
+        <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>UPDATE district SET district_name = ?, access = ? WHERE district_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_access'>access</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>else</span>
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="enter_new_lawdistrict-instance_method">
+  
+    #<strong>enter_new_lawdistrict</strong>(law_name, district_name, access_number, time)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enter_new_lawdistrict'>enter_new_lawdistrict</span><span class='lparen'>(</span><span class='id identifier rubyid_law_name'>law_name</span><span class='comma'>,</span> <span class='id identifier rubyid_district_name'>district_name</span><span class='comma'>,</span> <span class='id identifier rubyid_access_number'>access_number</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_maybe_dubble'>maybe_dubble</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT district_name FROM district WHERE access = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_access_number'>access_number</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='id identifier rubyid_maybe_dubble'>maybe_dubble</span> <span class='op'>=</span> <span class='id identifier rubyid_maybe_dubble'>maybe_dubble</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>district_name</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    
+    <span class='kw'>if</span> <span class='id identifier rubyid_district_name'>district_name</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_access_number'>access_number</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_district_name'>district_name</span> <span class='op'>!=</span> <span class='id identifier rubyid_maybe_dubble'>maybe_dubble</span>
+            <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO district (district_name, access) VALUES (?,?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_district_name'>district_name</span><span class='comma'>,</span> <span class='id identifier rubyid_access_number'>access_number</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+        <span class='id identifier rubyid_law_id'>law_id</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT law_id FROM laws WHERE law_name = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_law_name'>law_name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+        <span class='id identifier rubyid_law_id'>law_id</span> <span class='op'>=</span> <span class='id identifier rubyid_law_id'>law_id</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>law_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_district_id'>district_id</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT district_id FROM district WHERE district_name = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_district_name'>district_name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+        <span class='id identifier rubyid_district_id'>district_id</span> <span class='op'>=</span> <span class='id identifier rubyid_district_id'>district_id</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>district_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_law_id'>law_id</span><span class='comma'>,</span> <span class='id identifier rubyid_district_id'>district_id</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span> 
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="hem-instance_method">
+  
+    #<strong>hem</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hem'>hem</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> 
+    <span class='id identifier rubyid_prime_minister'>prime_minister</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT username FROM user WHERE access = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_prime_minister'>prime_minister</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="is_it_empty-instance_method">
+  
+    #<strong>is_it_empty</strong>(user_input)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_is_it_empty'>is_it_empty</span><span class='lparen'>(</span><span class='id identifier rubyid_user_input'>user_input</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_user_input'>user_input</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>end</span> 
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="law_create-instance_method">
+  
+    #<strong>law_create</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 130</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_law_create'>law_create</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_a_districtname'>a_districtname</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT district_name FROM district WHERE access = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='id identifier rubyid_district_names'>district_names</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM district</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_a_districtname'>a_districtname</span><span class='comma'>,</span> <span class='id identifier rubyid_district_names'>district_names</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="law_new_president-instance_method">
+  
+    #<strong>law_new_president</strong>(law_name, description, time)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+147
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_law_new_president'>law_new_president</span><span class='lparen'>(</span><span class='id identifier rubyid_law_name'>law_name</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO laws (law_name, description, updated) VALUES (?,?,?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_law_name'>law_name</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="law_update_president-instance_method">
+  
+    #<strong>law_update_president</strong>(district_name, district_access)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+236
+237
+238
+239</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 236</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_law_update_president'>law_update_president</span><span class='lparen'>(</span><span class='id identifier rubyid_district_name'>district_name</span><span class='comma'>,</span> <span class='id identifier rubyid_district_access'>district_access</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>UPDATE district SET district_name = ? WHERE access = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_district_name'>district_name</span><span class='comma'>,</span> <span class='id identifier rubyid_district_access'>district_access</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="laws_delete-instance_method">
+  
+    #<strong>laws_delete</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 249</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_laws_delete'>laws_delete</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_district_access'>district_access</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT access FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_district_access'>district_access</span> <span class='op'>||</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span>
+        <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM laws WHERE law_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM law_district_relation WHERE law_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>else</span> 
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="laws_edit-instance_method">
+  
+    #<strong>laws_edit</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_laws_edit'>laws_edit</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_all_info_law'>all_info_law</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM laws WHERE law_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='id identifier rubyid_all_info_district'>all_info_district</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_all_info_district1'>all_info_district1</span> <span class='op'>=</span> <span class='id identifier rubyid_all_info_district'>all_info_district</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_all_info_district2'>all_info_district2</span> <span class='op'>=</span> <span class='id identifier rubyid_all_info_district'>all_info_district</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_all_info_district3'>all_info_district3</span> <span class='op'>=</span> <span class='id identifier rubyid_all_info_district'>all_info_district</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+
+    <span class='kw'>return</span> <span class='id identifier rubyid_all_info_law'>all_info_law</span><span class='comma'>,</span> <span class='id identifier rubyid_all_info_district1'>all_info_district1</span><span class='comma'>,</span> <span class='id identifier rubyid_all_info_district2'>all_info_district2</span><span class='comma'>,</span> <span class='id identifier rubyid_all_info_district3'>all_info_district3</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="laws_id-instance_method">
+  
+    #<strong>laws_id</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+241
+242
+243
+244
+245
+246
+247</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 241</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_laws_id'>laws_id</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_law_info'>law_info</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM laws WHERE law_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='id identifier rubyid_district_info'>district_info</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_minister_info'>minister_info</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT username FROM user WHERE access IN (SELECT access FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?))</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_law_info'>law_info</span><span class='comma'>,</span> <span class='id identifier rubyid_district_info'>district_info</span><span class='comma'>,</span> <span class='id identifier rubyid_minister_info'>minister_info</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="laws_update-instance_method">
+  
+    #<strong>laws_update</strong>(id, name, description)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 197</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_laws_update'>laws_update</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_all_access_districts'>all_access_districts</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT access FROM district WHERE district_id IN (SELECT district_id FROM law_district_relation WHERE law_id = ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+
+
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_all_access_districts'>all_access_districts</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span>
+        <span class='id identifier rubyid_district_access1'>district_access1</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_district_access1'>district_access1</span> <span class='op'>=</span> <span class='id identifier rubyid_all_access_districts'>all_access_districts</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+        <span class='id identifier rubyid_district_access1'>district_access1</span> <span class='op'>=</span> <span class='id identifier rubyid_district_access1'>district_access1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>    
+
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_all_access_districts'>all_access_districts</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span>
+        <span class='id identifier rubyid_district_access2'>district_access2</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_district_access2'>district_access2</span> <span class='op'>=</span> <span class='id identifier rubyid_all_access_districts'>all_access_districts</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+        <span class='id identifier rubyid_district_access2'>district_access2</span> <span class='op'>=</span> <span class='id identifier rubyid_district_access2'>district_access2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>   
+    
+    
+    <span class='kw'>if</span> <span class='id identifier rubyid_all_access_districts'>all_access_districts</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>nil</span>
+        <span class='id identifier rubyid_district_access3'>district_access3</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+        <span class='id identifier rubyid_district_access3'>district_access3</span> <span class='op'>=</span> <span class='id identifier rubyid_all_access_districts'>all_access_districts</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+        <span class='id identifier rubyid_district_access3'>district_access3</span> <span class='op'>=</span> <span class='id identifier rubyid_district_access3'>district_access3</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+    <span class='kw'>end</span>    
+
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_district_access1'>district_access1</span> <span class='op'>||</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_district_access2'>district_access2</span> <span class='op'>||</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_district_access3'>district_access3</span> <span class='op'>||</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>1</span>
+        <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>UPDATE laws SET law_name = ?, description = ? WHERE law_id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+        <span class='kw'>return</span> <span class='id identifier rubyid_district_access1'>district_access1</span><span class='comma'>,</span> <span class='id identifier rubyid_district_access2'>district_access2</span><span class='comma'>,</span> <span class='id identifier rubyid_district_access3'>district_access3</span>
+    <span class='kw'>else</span>
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="login-instance_method">
+  
+    #<strong>login</strong>(username, password)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> 
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM user WHERE username = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="long-instance_method">
+  
+    #<strong>long</strong>(user_input)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_long'>long</span><span class='lparen'>(</span><span class='id identifier rubyid_user_input'>user_input</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_user_input'>user_input</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='int'>2</span> <span class='kw'>or</span> <span class='id identifier rubyid_user_input'>user_input</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>70</span>
+            <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+    
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="minister_delete-instance_method">
+  
+    #<strong>minister_delete</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 108</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_minister_delete'>minister_delete</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>DELETE FROM user WHERE id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="minister_edit-instance_method">
+  
+    #<strong>minister_edit</strong>(id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116
+117</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_minister_edit'>minister_edit</span><span class='lparen'>(</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_user_info'>user_info</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT * FROM user WHERE id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_user_info'>user_info</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="minister_update-instance_method">
+  
+    #<strong>minister_update</strong>(name, access, id)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_minister_update'>minister_update</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_access'>access</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='const'>SQLite3</span><span class='op'>::</span><span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>UPDATE user SET username = ?, access = ? WHERE id = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_access'>access</span><span class='comma'>,</span> <span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="new_law_ministers-instance_method">
+  
+    #<strong>new_law_ministers</strong>(law_name, description, time)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171
+172
+173
+174</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_new_law_ministers'>new_law_ministers</span><span class='lparen'>(</span><span class='id identifier rubyid_law_name'>law_name</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_district_name'>district_name</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT district_name FROM district WHERE access = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:user_access</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO laws (law_name, description, updated) VALUES (?,?,?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_law_name'>law_name</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_district_name'>district_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="new_law_ministers_part2-instance_method">
+  
+    #<strong>new_law_ministers_part2</strong>(law_name, time, district_name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+176
+177
+178
+179
+180
+181
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 176</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_new_law_ministers_part2'>new_law_ministers_part2</span><span class='lparen'>(</span><span class='id identifier rubyid_law_name'>law_name</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='comma'>,</span> <span class='id identifier rubyid_district_name'>district_name</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_law_id'>law_id</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT law_id FROM laws WHERE law_name = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_law_name'>law_name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='id identifier rubyid_law_id'>law_id</span> <span class='op'>=</span> <span class='id identifier rubyid_law_id'>law_id</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>law_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_district_id'>district_id</span> <span class='op'>=</span> <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT district_id FROM district WHERE district_name = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_district_name'>district_name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
+    <span class='id identifier rubyid_district_id'>district_id</span> <span class='op'>=</span> <span class='id identifier rubyid_district_id'>district_id</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>district_id</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO law_district_relation (law_id, district_id, updated) VALUES (?, ?, ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_law_id'>law_id</span><span class='comma'>,</span> <span class='id identifier rubyid_district_id'>district_id</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="no_double-instance_method">
+  
+    #<strong>no_double</strong>(law_name)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139
+140
+141
+142
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_no_double'>no_double</span><span class='lparen'>(</span><span class='id identifier rubyid_law_name'>law_name</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_maybe_dubble'>maybe_dubble</span><span class='op'>=</span><span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT law_id FROM laws WHERE law_name = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_law_name'>law_name</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_maybe_dubble'>maybe_dubble</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>else</span> 
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="register-instance_method">
+  
+    #<strong>register</strong>(username, access, password, password_confirm)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_access'>access</span><span class='comma'>,</span> <span class='id identifier rubyid_password'>password</span><span class='comma'>,</span> <span class='id identifier rubyid_password_confirm'>password_confirm</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_db'>db</span> <span class='op'>=</span> <span class='id identifier rubyid_database'><span class='object_link'><a href="#database-instance_method" title="Model#database (method)">database</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db/laws.db</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result'>result</span><span class='op'>=</span><span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT id FROM user WHERE username = ?</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
+    
+    <span class='kw'>if</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_samepw'><span class='object_link'><a href="#samepw-instance_method" title="Model#samepw (method)">samepw</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_password'>password</span><span class='comma'>,</span> <span class='id identifier rubyid_password_confirm'>password_confirm</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_password_digest'>password_digest</span> <span class='op'>=</span> <span class='const'>BCrypt</span><span class='op'>::</span><span class='const'>Password</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_password'>password</span><span class='rparen'>)</span>
+            <span class='id identifier rubyid_db'>db</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>INSERT INTO user (username, password, access) VALUES (?, ?, ?)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_username'>username</span><span class='comma'>,</span> <span class='id identifier rubyid_password_digest'>password_digest</span><span class='comma'>,</span> <span class='id identifier rubyid_access'>access</span><span class='rparen'>)</span>
+            <span class='kw'>return</span> <span class='kw'>true</span> 
+
+        <span class='kw'>else</span> 
+            <span class='kw'>return</span> <span class='kw'>false</span>
+        <span class='kw'>end</span>
+    
+    <span class='kw'>else</span>
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="samepw-instance_method">
+  
+    #<strong>samepw</strong>(pw, pwc)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_samepw'>samepw</span><span class='lparen'>(</span><span class='id identifier rubyid_pw'>pw</span><span class='comma'>,</span> <span class='id identifier rubyid_pwc'>pwc</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_pw'>pw</span> <span class='op'>==</span> <span class='id identifier rubyid_pwc'>pwc</span>
+        <span class='kw'>return</span> <span class='kw'>true</span>
+    <span class='kw'>else</span>
+        <span class='kw'>return</span> <span class='kw'>false</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="security-instance_method">
+  
+    #<strong>security</strong>(unProtectedRoutes)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'model.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_security'>security</span><span class='lparen'>(</span><span class='id identifier rubyid_unProtectedRoutes'>unProtectedRoutes</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_info'>path_info</span>
+    <span class='id identifier rubyid_pathMethod'>pathMethod</span> <span class='op'>=</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_request_method'>request_method</span>
+    <span class='id identifier rubyid_pathInclude'>pathInclude</span> <span class='op'>=</span> <span class='id identifier rubyid_unProtectedRoutes'>unProtectedRoutes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    
+    <span class='kw'>if</span>  <span class='kw'>not</span> <span class='id identifier rubyid_pathInclude'>pathInclude</span> <span class='kw'>and</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_info'>path_info</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/error</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_info'>path_info</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/login/error</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_info'>path_info</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/login/unmatched</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_info'>path_info</span> <span class='op'>!=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/laws/error</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>and</span> <span class='id identifier rubyid_pathMethod'>pathMethod</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GET</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_session'>session</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+            <span class='kw'>return</span> <span class='kw'>true</span>
+        <span class='kw'>else</span>
+            <span class='kw'>return</span> <span class='kw'>false</span>
+        <span class='kw'>end</span>
+
+    <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon May 16 13:59:14 2022 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.27 (ruby-3.1.2).
+</div>
+
+    </div>
+  </body>
+</html>
